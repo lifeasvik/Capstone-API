@@ -1,0 +1,14 @@
+body {
+    background-color: darkgray;
+}
+
+.destination {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.destination img {
+    border-radius: 50%;
+    height: 100px;
+}
