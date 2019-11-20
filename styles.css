@@ -2,10 +2,22 @@ body {
     background-color: darkgray;
 }
 
+input {
+display: inline-block;
+}
+
+.searchbox {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+}
+
 .destination {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    align-items: center;
+    height: 300px;
 }
 
 .destination img {
