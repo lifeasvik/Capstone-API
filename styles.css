@@ -12,22 +12,38 @@ input {
 display: inline-block;
 }
 
+.didyoulogin {
+    padding-right: 20px;
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Teko', sans-serif;
+}
+
+.mainlogo{
+    text-align: center;
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+}
+
 .searchbox {
     width:100vw;
     position:absolute;
-    top:50vh;
+    top:20vh;
     text-align: center;
     margin-left:auto;
     margin-right:auto;
     display: flex;
     flex-direction: row;
     justify-content: center;
-    
 }
 
 .search {
     width:10vw;
     text-align: center;
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
 }
 
 .locEnter {
@@ -35,20 +51,18 @@ display: inline-block;
     background-color: white;
 }
 
-
-
 .destination {
     display: flex;
     justify-content: center;
     flex-direction: row;
     align-items: center;
     position: relative;
-    top:55vh;
-
+    top:35vh;
 }
 
 .destination img {
     border-radius: 50%;
-    height: 20px;
-    width:20px;
+    height: 100px;
+    width: 100px;
+    padding: 10px;
 }
