@@ -9,28 +9,40 @@
     <link href="https://fonts.googleapis.com/css?family=Teko&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Login Details here -->
-    <header>
-        <div class="didyoulogin">Welcome back John Smith</div>
-    </header>
-    <!-- Search Box here -->
+    
     <main>
-        <div class="mainlogo">
-            MAGNET
-        </div>
-        <div class="searchbox">
-            <input type="text" class ="search" name="locationsearch">
+    <section class="homePage">
+        <h3>MAGNET</h3>
+
+        
+        <div class="searchBox">
+            <input type="text" class ="search" placeholder="Enter the city you will be flying from!">
             <input type="submit" class="locEnter">
         </div>
-        <div class="destination">
+
+        <!-- <div class="destination">
             <img src="https://www.ssc.com.fj/media/23245/south-sea-island10.jpg"> Jamaica
             <img src="https://www.ssc.com.fj/media/23247/south-sea-island15.jpg"> Mexico
             <img src="https://www.ssc.com.fj/media/23248/south-sea-island.jpg"> Aruba
             <img src="https://www.ssc.com.fj/media/23246/ssi-underwater.jpg"> Costa Rica
             <img src="https://www.ssc.com.fj/media/23243/south-sea-island-meke1.jpg"> Belize
-        </div>
+        </div> -->
+    </section>
 
+    <section class = "parameterPage hidden">
 
+        <form class = "params">
+                <input type="text" class ="search dest" placeholder="Enter the name of the city you would like to go">
+                <input type="text" class ="search from" placeholder="From date.. (dd/mm/yyyy)">
+                <input type="text" class ="search to" placeholder="To date..(dd/mm/yyyy)">
+                <input type="submit" class="paramSubmit">
+        </form>
+
+    </section>
+
+    <section class = 'resultsPage hidden'>
+        <input type='button' class='test' value='show results'>
+    </section>
 
 
     </main>
