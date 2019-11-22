@@ -148,15 +148,11 @@ function showPosition(position) {
    let long = position.coords.longitude;
     
    genericFetch(`http://api.weatherstack.com/current?access_key=8bbdbccbbeab9c6104711906071d37fe&query=${lat},${long}&units=f`,showWeatherOnMain)
-
-    
+      
 }
 
 function showWeatherOnMain(responseJson){
-    
-    $('.homePage').find('.weather').append(`current temperature is ${responseJson.current.temperature}, let's change that`)
-    
-    
+    $('.homePage').find('.weather').append(`current temperature is ${responseJson.current.temperature}, let's change that`)   
 }
 
 function domReady(){
