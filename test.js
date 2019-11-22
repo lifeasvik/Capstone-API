@@ -14,6 +14,7 @@ const options = {
 function nextPage(){
     $('.locEnter').on('click', function(e){
         flyFrom = $('input[class="search"]').val();
+        flyFrom = flyFrom.toUpperCase();
         $('.homePage').hide();
         $('.parameterPage').show();
     });
@@ -23,6 +24,7 @@ function getParams(){
     $('.params').submit(function(e){
        event.preventDefault();
        flyTo = $('.dest').val();
+       flyTo = flyTo.toUpperCase();
        fromDate = $('.from').val();
        toDate = $('.to').val();
        city = $('.city').val();
@@ -106,7 +108,8 @@ function restaurantCityCallback(responseJson){
 
 function displayRestaurantResults(responseJson){
     for(let i = 0; i < 5; i ++){
-        $('.resultsPage').find('.restaurantResults').append(`<a>${responseJson.restaurants[i].restaurant.name}</a>`)
+        console.log(responseJson.restaurants[i])
+        $('.resultsPage').find('.restaurantResults').append(`<a target= "blank" href=${responseJson.restaurants[i].restaurant.url}> ${responseJson.restaurants[i].restaurant.name} rating - ${responseJson.restaurants[i].restaurant.user_rating['aggregate_rating']}</a>`)
     }
 }
 
