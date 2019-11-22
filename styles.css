@@ -222,7 +222,16 @@ img {
 
 @media only screen and (min-width: 768px) {
 
+    .homePage h3{
+        top: 25vh;
+        width: 40vw;
+    }
+
+    .homePage h5 {
+
+        top: 32vh;
+
+    }
+
 }
-
-
 
