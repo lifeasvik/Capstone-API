@@ -121,7 +121,7 @@ function restaurantFetch(city){
 }
 
 function weatherFetch(){
-    let url = `http://api.weatherstack.com/current?access_key=8bbdbccbbeab9c6104711906071d37fe&query=${flyTo}`
+    let url = `http://api.weatherstack.com/current?access_key=ed299871e432d599fc8c3a5bdfa4f859&query=${flyTo}`
     
 
     genericFetch(url, weatherForecast)
@@ -129,6 +129,7 @@ function weatherFetch(){
 }
 
 function weatherForecast(responseJson){
+    console.log(responseJson);
     $('.resultsPage').find('.weatherResults').append(`<p>Current Temp - ${responseJson.current.temperature}</p><p> Feels Like - ${responseJson.current.feelslike}</p>
     <p>Humidity - ${responseJson.current.humidity}</p>${responseJson.current.weather_descriptions}`)
 }
