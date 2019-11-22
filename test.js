@@ -52,6 +52,28 @@ function genericFetch(url, callback){
   
   }
 
+function genericFetchOptions(url, callback){
+    const options = {
+
+        headers: new Headers({
+            "user-key": "4d1fd27573b6d91183797cc18f880b5e"
+        })
+    };
+
+    fetch(url,options)
+      .then( response => {
+        if ( response.ok ){
+          return response.json();
+        }
+  
+        throw Error( response.statusText );
+      })
+      .then( responseJSON => {
+        callback( responseJSON );
+      });
+  
+  }
+
 function generateFlightURL(){
     let url = `https://api.skypicker.com/flights?fly_from=city:${flyFrom}&fly_to=city:${flyTo}&partner=picky&curr=USD&currency=USD&date_from=${fromDate}&date_to=${toDate}&conversion=USD&partner_market=US&limit=5`
     return url
@@ -74,10 +96,12 @@ function flightFetcher(){
 
 
 function restaurantCityCallback(responseJson){
+    console.log('id')
     let id = responseJson.location_suggestions[0].city_id
-    let url = (`https://developers.zomato.com/api/v2.1/search?entity_id=${id}&entity_type=city&q=food&count=5`,options)
+    
+    let url = (`https://developers.zomato.com/api/v2.1/search?entity_id=${id}&entity_type=city&q=food&count=5,options`)
 
-    genericFetch(url, displayRestaurantResults)
+    genericFetchOptions(url, displayRestaurantResults)
 }
 
 function displayRestaurantResults(responseJson){
@@ -87,9 +111,12 @@ function displayRestaurantResults(responseJson){
 }
 
 function restaurantFetch(city){
-    let url = (`https://developers.zomato.com/api/v2.1/locations?query=${city}%20`, options)
+    
 
-    genericFetch(url, restaurantCityCallback )
+    let url = (`https://developers.zomato.com/api/v2.1/locations?query=${city}`)
+    
+
+    genericFetchOptions(url, restaurantCityCallback )
 }
 
 function domReady(){
