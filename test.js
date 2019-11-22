@@ -31,6 +31,7 @@ function getParams(){
        $('.parameterPage').hide();
        flightFetcher();
        restaurantFetch(city);
+       weatherFetch();
        
           
     })
@@ -114,12 +115,21 @@ function displayRestaurantResults(responseJson){
 }
 
 function restaurantFetch(city){
-    
-
     let url = (`https://developers.zomato.com/api/v2.1/locations?query=${city}`)
     
-
     genericFetchOptions(url, restaurantCityCallback )
+}
+
+function weatherFetch(){
+    let url = `http://api.weatherstack.com/forecast?access_key=8bbdbccbbeab9c6104711906071d37fe&query=phoenix`
+    
+
+    genericFetch(url, weatherForecast)
+
+}
+
+function weatherForecast(responseJson){
+console.log(responseJson.current.temperature)
 }
 
 function domReady(){
