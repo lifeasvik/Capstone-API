@@ -14,6 +14,7 @@ const options = {
 function nextPage(){
     $('.locEnter').on('click', function(e){
         flyFrom = $('input[class="search"]').val();
+        flyFrom = flyFrom.toUpperCase();
         $('.homePage').hide();
         $('.parameterPage').show();
     });
@@ -23,6 +24,7 @@ function getParams(){
     $('.params').submit(function(e){
        event.preventDefault();
        flyTo = $('.dest').val();
+       flyTo = flyTo.toUpperCase();
        fromDate = $('.from').val();
        toDate = $('.to').val();
        city = $('.city').val();
@@ -39,6 +41,28 @@ function getParams(){
 function genericFetch(url, callback){
 
     fetch(url)
+      .then( response => {
+        if ( response.ok ){
+          return response.json();
+        }
+  
+        throw Error( response.statusText );
+      })
+      .then( responseJSON => {
+        callback( responseJSON );
+      });
+  
+  }
+
+function genericFetchOptions(url, callback){
+    const options = {
+
+        headers: new Headers({
+            "user-key": "4d1fd27573b6d91183797cc18f880b5e"
+        })
+    };
+
+    fetch(url,options)
       .then( response => {
         if ( response.ok ){
           return response.json();
@@ -74,22 +98,28 @@ function flightFetcher(){
 
 
 function restaurantCityCallback(responseJson){
+    console.log('id')
     let id = responseJson.location_suggestions[0].city_id
-    let url = (`https://developers.zomato.com/api/v2.1/search?entity_id=${id}&entity_type=city&q=food&count=5`,options)
+    
+    let url = (`https://developers.zomato.com/api/v2.1/search?entity_id=${id}&entity_type=city&q=food&count=5,options`)
 
-    genericFetch(url, displayRestaurantResults)
+    genericFetchOptions(url, displayRestaurantResults)
 }
 
 function displayRestaurantResults(responseJson){
     for(let i = 0; i < 5; i ++){
-        $('.resultsPage').find('.restaurantResults').append(`<a>${responseJson.restaurants[i].restaurant.name}</a>`)
+        console.log(responseJson.restaurants[i])
+        $('.resultsPage').find('.restaurantResults').append(`<a target= "blank" href=${responseJson.restaurants[i].restaurant.url}> ${responseJson.restaurants[i].restaurant.name} rating - ${responseJson.restaurants[i].restaurant.user_rating['aggregate_rating']}</a>`)
     }
 }
 
 function restaurantFetch(city){
-    let url = (`https://developers.zomato.com/api/v2.1/locations?query=${city}%20`, options)
+    
 
-    genericFetch(url, restaurantCityCallback )
+    let url = (`https://developers.zomato.com/api/v2.1/locations?query=${city}`)
+    
+
+    genericFetchOptions(url, restaurantCityCallback )
 }
 
 function domReady(){
