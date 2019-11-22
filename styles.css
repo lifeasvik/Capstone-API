@@ -114,7 +114,7 @@ img {
 
 .search {
     width: 65vw;
-    padding: auto;
+    padding: 12px;
     border: 2px solid gray;
     border-radius: 4px;
     margin-top: auto;
@@ -133,19 +133,14 @@ img {
     border-radius:4px;
     
 }
-i {
-    margin:auto;
-    background:white;
+
+.fas {
     color:deepskyblue;
-    position: absolute;
-    top: 50%;
-    height: 50%;
-    transform: translate(-50%, -50%);
-    width: 20px;
-    height: 10px;
-    display: block;
-    
+    background:white;
+    border-radius:4px;
+    padding:12px;
 }
+
 
 .destination {
     display:none;
