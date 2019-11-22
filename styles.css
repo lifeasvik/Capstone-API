@@ -45,6 +45,16 @@ img {
     margin: auto;
 }
 
+.homePage .weather {
+    position:relative;
+    border:1px solid black;
+    bottom:50vh;
+    margin:auto;
+    height:10vh;
+    width:40vw;
+
+}
+
 .homePage h3 {
     position: absolute;
     margin-block-start: 0em;

@@ -131,14 +131,39 @@ function weatherFetch(){
 function weatherForecast(responseJson){
     $('.resultsPage').find('.weatherResults').append(`<p>Current Temp - ${responseJson.current.temperature}</p><p> Feels Like - ${responseJson.current.feelslike}</p>
     <p>Humidity - ${responseJson.current.humidity}</p>${responseJson.current.weather_descriptions}`)
+}
 
 
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+function showPosition(position) {
+    
+   let lat = position.coords.latitude;
+   let long = position.coords.longitude;
+    
+   genericFetch(`http://api.weatherstack.com/current?access_key=8bbdbccbbeab9c6104711906071d37fe&query=${lat},${long}&units=f`,showWeatherOnMain)
 
+    
+}
+
+function showWeatherOnMain(responseJson){
+    
+    $('.homePage').find('.weather').append(`current temperature is ${responseJson.current.temperature}, let's change that`)
+    
+    
 }
 
 function domReady(){
     $(nextPage);
     $(getParams);
+    
+    
+    
           
 }
 
