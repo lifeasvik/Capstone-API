@@ -233,7 +233,17 @@ i {
     display: flex;
     width:65vw;
     height:20vh;
-    margin-top:25vh;
+    margin-left:auto;
+    margin-right:auto;
+    flex-flow: wrap;
+    flex-direction: column;
+    border:1px solid black;
+}
+
+.weatherResults {
+    display: flex;
+    width:65vw;
+    height:20vh;
     margin-left:auto;
     margin-right:auto;
     flex-flow: wrap;

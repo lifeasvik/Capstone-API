@@ -110,7 +110,7 @@ function restaurantCityCallback(responseJson){
 function displayRestaurantResults(responseJson){
     for(let i = 0; i < 5; i ++){
         console.log(responseJson.restaurants[i])
-        $('.resultsPage').find('.restaurantResults').append(`<a target= "blank" href=${responseJson.restaurants[i].restaurant.url}> ${responseJson.restaurants[i].restaurant.name} rating - ${responseJson.restaurants[i].restaurant.user_rating['aggregate_rating']}</a>`)
+        $('.resultsPage').find('.restaurantResults').append(`<a target= "blank" href=${responseJson.restaurants[i].restaurant.url}> ${responseJson.restaurants[i].restaurant.name} 'rating' - ${responseJson.restaurants[i].restaurant.user_rating['aggregate_rating']}</a>`)
     }
 }
 
@@ -121,7 +121,7 @@ function restaurantFetch(city){
 }
 
 function weatherFetch(){
-    let url = `http://api.weatherstack.com/forecast?access_key=8bbdbccbbeab9c6104711906071d37fe&query=phoenix`
+    let url = `http://api.weatherstack.com/current?access_key=8bbdbccbbeab9c6104711906071d37fe&query=${flyTo}`
     
 
     genericFetch(url, weatherForecast)
@@ -129,12 +129,24 @@ function weatherFetch(){
 }
 
 function weatherForecast(responseJson){
-console.log(responseJson.current.temperature)
+    $('.resultsPage').find('.weatherResults').append(`<p>Current Temp - ${responseJson.current.temperature}</p><p> Feels Like - ${responseJson.current.feelslike}</p>
+    <p>Humidity - ${responseJson.current.humidity}</p>${responseJson.current.weather_descriptions}`)
+
+
+
+    
+
+
+
+
+
+
 }
 
 function domReady(){
     $(nextPage);
-    $(getParams);   
+    $(getParams);
+          
 }
 
 $(domReady);
