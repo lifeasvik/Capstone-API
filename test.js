@@ -134,13 +134,6 @@ function weatherForecast(responseJson){
 
 
 
-    
-
-
-
-
-
-
 }
 
 function domReady(){

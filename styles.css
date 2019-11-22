@@ -218,6 +218,24 @@ i {
     padding: 10px;  
 }
 
+.resultsPage div {
+    margin-bottom:20px;
+}
+
+a:hover {
+    cursor:pointer;
+}
+
+a:link {
+    color: #DEE4E7;
+    cursor:pointer;
+}
+
+a:visited {
+    color:black;
+}
+
+
 .flightResults {
     display: flex;
     width:65vw;
@@ -227,6 +245,7 @@ i {
     flex-flow: wrap;
     flex-direction: column;
     border:1px solid black;
+    z-index:900;
 }
 
 .restaurantResults {
