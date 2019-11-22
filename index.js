@@ -23,6 +23,7 @@ function getParams(){
        toDate = $('.to').val();
        city = $('.city').val();
        $('.parameterPage').hide();
+       $('.resultsPage').show();
        generateFlights();
        generateCityId();
        

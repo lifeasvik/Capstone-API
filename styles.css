@@ -26,6 +26,7 @@ main {
     overflow:auto;
     position:relative;
     z-index: 2;
+    height:100vh;
 }
 
 img {
@@ -63,6 +64,7 @@ img {
     width:40vw;
 
 }
+
 
 .homePage h3 {
     position: absolute;
@@ -115,7 +117,7 @@ img {
 .search {
     width: 65vw;
     padding: 12px;
-    border: 2px solid gray;
+    border: 2px solid deepskyblue;
     border-radius: 4px;
     margin-top: auto;
     margin-bottom: auto;
@@ -205,17 +207,13 @@ img {
     width:100vw;
     text-align: center;
     margin:auto;
+    display:flex;
+    flex-flow:row wrap;
+    justify-content: flex-end;
     
 }
 
-.resultsPage .test {
-    
-    position: relative;
-    top:25vh;
-    margin-left:auto;
-    margin-right:auto;
-    background:white;
-}
+
 
 .resultsPage {
     height:100vh;
@@ -231,7 +229,7 @@ img {
     color: white;
     font-weight: bold;
     border: 3px solid #f1f1f1;
-    top: 55vh;
+    top: 50vh;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
@@ -240,6 +238,10 @@ img {
 
 .resultsPage div {
     margin-bottom:20px;
+}
+
+.resultPage h1 {
+    color:#DEE4E7;
 }
 
 a:hover {
@@ -264,7 +266,7 @@ a:visited {
     margin-right:auto;
     flex-flow: wrap;
     flex-direction: column;
-    border:1px solid black;
+    border:1px solid #DEE4E7;
     z-index:900;
 }
 
@@ -276,7 +278,7 @@ a:visited {
     margin-right:auto;
     flex-flow: wrap;
     flex-direction: column;
-    border:1px solid black;
+    border:1px solid #DEE4E7;
 }
 
 .weatherResults {
@@ -287,21 +289,176 @@ a:visited {
     margin-right:auto;
     flex-flow: wrap;
     flex-direction: column;
-    border:1px solid black;
+    border:1px solid #DEE4E7;
 }
+@media only screen and 
+(min-height:200px) and
+(min-width: 600px){
+    .hidden {
+        display:none;
+    }
 
-@media only screen and (min-width: 768px) {
-
-    .homePage h3{
-        top: 25vh;
-        width: 40vw;
+    .homePage h3 {
+        font-size:28px;
+        width:30vw;
     }
 
     .homePage h5 {
+        font-size:12px;
+    }
+    .locEnter{
+        background:none;
+        border:none;
+    }
 
-        top: 32vh;
+    .locEnter i {
+        padding:14px;
+        border:solid deepskyblue 2px;
+        
+        
+    }
 
+    .params input[type=text] {
+        height:10px;
+    }
+
+    .params input[type=submit] {
+        padding-right:33px;
+    }
+
+    
+
+}
+
+@media only screen and 
+(min-height:376px) and
+(min-width: 600px) {
+    .hidden {
+        display:none;
+    }
+
+    .homePage h3 {
+        margin-top:8vh;
+        font-size:40px;
+        width:30vw;
+    }
+
+    .homePage h5 {
+        font-size:12px;
+        top:27vh;
+    }
+
+    .homePage .searchBox {
+        margin-top:12vh;
+    }
+
+    .locEnter i {
+        padding:15px;
+        border:solid deepskyblue 2px;
+    }
+
+    .paramEnter {
+        padding-right:48px;
+        padding-left:20px;
+        padding-top:13px;
+        padding-bottom:10px;
+        border:1px solid deepskyblue;
+    }
+
+    .parameterPage h4 {
+        margin-top:2px;
+        margin-bottom:2px;
+        margin-right:auto;
+        margin-left:auto;
+        width:60%;
+        font-size:20px;
+    }
+
+    .resultsPage {
+        height:80vh;
+        font-size:12px;
+    }
+
+    .resultsPage h1{
+        width:100%;
+    }
+
+    .resultsPage div {
+        height:15vh;
+        width:85vh;
+        
     }
 
 }
+
+@media only screen and 
+(min-height:600px) and
+(min-width: 600px) {
+    .homePage h3 {
+        font-size:65px;
+        width:60vw;
+    }
+
+   .homePage h5 {
+        top:27vh;
+        font-size:20px;
+   }
+
+   .resultsPage {
+       font-size:20px;
+   }
+
+}
+
+@media only screen and
+(min-height:600px) and
+(min-width:300px) {
+    .hidden {
+        display:none;
+    }
+
+    .resultsPage{
+        height:80vh;
+    }
+
+    .resultsPage div{
+        height:18vh;
+    }
+
+    .searchBox {
+        margin-top:10vh;
+
+    }
+
+    .locEnter i {
+        padding:15px;
+        border:2px solid deepskyblue;
+    }
+
+    .paramEnter {
+        padding-right:48px;
+        padding-left:20px;
+        padding-top:13px;
+        padding-bottom:10px;
+        border:1px solid deepskyblue;
+    }
+
+}
+
+@media only screen and
+(min-height:800px) and
+(min-width:600px){
+    .resultsPage {
+        font-size:24px;
+    }
+
+    .resultsPage div {
+        width:50vw;
+    }
+
+}
+
+
+
+
 
