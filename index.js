@@ -4,8 +4,8 @@ let flyTo = null;
 let fromDate = null;
 let toDate = null;
 let city = null;
-let cityID = null;
-let limit = 5;
+// let cityID = null;
+// let limit = 5;
 
 function nextPage(){
     $('.locEnter').on('click', function(e){
@@ -32,8 +32,6 @@ function getParams(){
 }
 
 function generateCityId(){
-    
-    console.log(city)
     const options = {
 
         headers: new Headers({
@@ -43,16 +41,15 @@ function generateCityId(){
 
     fetch(`https://developers.zomato.com/api/v2.1/locations?query=${city}%20`, options)
     .then(response => response.json())
-    .then(responseJson => generateRestaurants(responseJson.location_suggestions[0].city_id))
-    
-    
-       
+    .then(responseJson => generateRestaurants(responseJson.location_suggestions[0].city_id))      
 }
+
 
 function generateFlightURL(){
     let url = `https://api.skypicker.com/flights?fly_from=city:${flyFrom}&fly_to=city:${flyTo}&partner=picky&curr=USD&currency=USD&date_from=${fromDate}&date_to=${toDate}&conversion=USD&partner_market=US&limit=5`
     return url
 }
+
 
 function generateFlights(){
     let url = generateFlightURL();
